@@ -2,7 +2,6 @@
 
 target 'CoronaTracer' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
 
   # Pods for CoronaTracer
   pod 'Alamofire', '~> 5.0'

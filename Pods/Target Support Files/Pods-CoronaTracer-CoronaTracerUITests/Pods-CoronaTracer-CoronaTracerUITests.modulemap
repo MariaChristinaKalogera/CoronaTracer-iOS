@@ -1,4 +1,4 @@
-framework module Pods_CoronaTracer_CoronaTracerUITests {
+module Pods_CoronaTracer_CoronaTracerUITests {
   umbrella header "Pods-CoronaTracer-CoronaTracerUITests-umbrella.h"
 
   export *

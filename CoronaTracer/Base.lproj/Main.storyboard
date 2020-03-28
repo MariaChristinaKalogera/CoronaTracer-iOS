@@ -1,24 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vmd-ru-8nk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CoronaTracer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntialViewController" customModule="CoronaTracer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXE-WI-aD0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="788"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Use Bluethooth to determine your proximity with other users. If you're within transmittable proximity we keep track of it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWc-ry-FW3">
+                                        <rect key="frame" x="20" y="204.5" width="375" height="115"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.074509803920000006" green="0.33725490200000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help stop the spread by turning on you Bluetooth." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjs-oO-Awt">
+                                        <rect key="frame" x="20" y="40" width="376" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                        <color key="textColor" red="0.074509803921568626" green="0.33725490196078434" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa6-Hk-5So">
+                                        <rect key="frame" x="57" y="399.5" width="300" height="60"/>
+                                        <color key="backgroundColor" red="0.074509803920000006" green="0.33725490200000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="L1A-KQ-5Ty"/>
+                                            <constraint firstAttribute="height" constant="60" id="zby-AE-JuP"/>
+                                        </constraints>
+                                        <state key="normal" title="Enable bluetooth"/>
+                                        <connections>
+                                            <action selector="enableBluetoothAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xdn-bM-sKm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iWc-ry-FW3" secondAttribute="trailing" constant="20" id="C66-dJ-aY6"/>
+                                    <constraint firstItem="iWc-ry-FW3" firstAttribute="leading" secondItem="PXE-WI-aD0" secondAttribute="leading" constant="20" id="QIP-8g-5GH"/>
+                                    <constraint firstItem="Oa6-Hk-5So" firstAttribute="top" secondItem="iWc-ry-FW3" secondAttribute="bottom" constant="80" id="Qb8-LB-HLy"/>
+                                    <constraint firstItem="iWc-ry-FW3" firstAttribute="top" secondItem="bjs-oO-Awt" secondAttribute="bottom" constant="100" id="SUc-Jg-wwQ"/>
+                                    <constraint firstItem="bjs-oO-Awt" firstAttribute="leading" secondItem="PXE-WI-aD0" secondAttribute="leading" constant="20" id="Tvj-DL-K2Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oa6-Hk-5So" secondAttribute="bottom" constant="98.5" id="Xtn-CG-lCv"/>
+                                    <constraint firstAttribute="trailing" secondItem="bjs-oO-Awt" secondAttribute="trailing" constant="19" id="mmN-Ts-lg3"/>
+                                    <constraint firstItem="bjs-oO-Awt" firstAttribute="top" secondItem="IxQ-cH-wLt" secondAttribute="top" constant="40" id="wQB-RW-kvU"/>
+                                    <constraint firstItem="Oa6-Hk-5So" firstAttribute="centerX" secondItem="PXE-WI-aD0" secondAttribute="centerX" id="xOp-XD-jNS"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IxQ-cH-wLt"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="pRU-QI-E4j"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iWc-ry-FW3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="1VC-Wx-up6"/>
+                            <constraint firstItem="PXE-WI-aD0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8wB-o5-ZlN"/>
+                            <constraint firstItem="PXE-WI-aD0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HXt-I3-Wls"/>
+                            <constraint firstItem="iWc-ry-FW3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="19" id="Vle-RK-jEY"/>
+                            <constraint firstAttribute="bottom" secondItem="PXE-WI-aD0" secondAttribute="bottom" constant="20" symbolic="YES" id="wuw-eJ-aDA"/>
+                            <constraint firstItem="PXE-WI-aD0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xwk-ky-BTy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="CoronaTracer" id="ELA-i2-X6N"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EJ6-ah-Rqf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vmd-ru-8nk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQy-mV-gwE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="goK-Th-BTH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcF-RE-LuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
     </scenes>
 </document>
