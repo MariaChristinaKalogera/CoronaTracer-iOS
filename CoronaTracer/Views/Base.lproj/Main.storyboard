@@ -90,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="60" id="Wt3-lx-bl8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="l8Y-3s-jxv"/>
                                 </constraints>
-                                <state key="normal" title="Login with Facbook"/>
+                                <state key="normal" title="Login with Facebook"/>
                                 <connections>
                                     <action selector="login:" destination="Blb-gD-qQo" eventType="touchUpInside" id="yqK-uv-mRN"/>
                                 </connections>
