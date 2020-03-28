@@ -1,5 +1,5 @@
 //
-//  BluetoothScanner.swift
+//  BluetoothScannerService.swift
 //  CoronaTracer
 //
 //  Created by Oleh Kudinov on 28/03/2020.
@@ -8,14 +8,14 @@
 
 import CoreBluetooth
 
-open class BluetoothScanner: NSObject, CBCentralManagerDelegate {
+open class BluetoothScannerService: NSObject, CBCentralManagerDelegate {
 
-    public typealias DidDiscoverPeripheralClosure = (PeripheralRepresntable) -> Void
+    public typealias DidDiscoverPeripheralClosure = (Peripheral) -> Void
     var centralManager: CBCentralManager!
-    private var onScannerReady: ((BluetoothScanner) -> Void)?
+    private var onScannerReady: ((BluetoothScannerService) -> Void)?
     private var onDiscover: DidDiscoverPeripheralClosure?
 
-    public init(onScannerReady: @escaping (BluetoothScanner) -> Void) {
+    public init(onScannerReady: @escaping (BluetoothScannerService) -> Void) {
         self.onScannerReady = onScannerReady
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
@@ -41,7 +41,7 @@ open class BluetoothScanner: NSObject, CBCentralManagerDelegate {
     // MARK: - CBCentralManagerDelegate
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        onDiscover?(peripheral.asPeripheral(advertisementData: advertisementData, rssi: RSSI.intValue))
+        onDiscover?(peripheral.toDomain(advertisementData: advertisementData, rssi: RSSI.intValue))
     }
 
 }

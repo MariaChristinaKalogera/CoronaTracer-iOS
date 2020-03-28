@@ -9,25 +9,7 @@
 import Foundation
 import CoreBluetooth
 
-public protocol PeripheralRepresntable {
-    var advertisedName: String? { get }
-    var state: String { get }
-    var rssi: String { get }
-    var uuid: String { get }
-}
 
-extension PeripheralRepresntable {
-
-    public var tableViewData: [String: String] {
-        return [
-            "ID": uuid,
-            "NAME": advertisedName ?? "unknown",
-            "STATE": state,
-            "RSSI": "\(rssi)"
-        ]
-    }
-
-}
 
 extension CBPeripheralState {
     var stringRepresentation: String {
@@ -43,24 +25,32 @@ extension CBPeripheralState {
 }
 
 extension CBPeripheral {
-    public func asPeripheral(advertisementData: [String: Any],rssi: Int) -> PeripheralRepresntable {
+    public func toDomain(advertisementData: [String: Any],rssi: Int) -> Peripheral {
         return Peripheral(self, advertisementData: advertisementData, rssi: rssi)
     }
 }
 
-struct Peripheral: PeripheralRepresntable {
+public struct Peripheral {
 
-    let advertisedName: String?
-    var state: String { return peripheral.state.stringRepresentation }
-    var uuid: String { return peripheral.identifier.uuidString }
-
-    let rssi: String
-    let peripheral: CBPeripheral
+    public let advertisedName: String?
+    public let state: String
+    public let uuid: String
+    public let rssi: String
 
     init(_ peripheral: CBPeripheral, advertisementData: [String: Any], rssi: Int) {
+        self.uuid = peripheral.identifier.uuidString
         self.advertisedName = advertisementData[CBAdvertisementDataLocalNameKey] as? String ?? peripheral.name
-        self.peripheral = peripheral
+        self.state = peripheral.state.stringRepresentation
         self.rssi = "\(rssi)"
     }
 
+}
+
+extension Peripheral {
+
+    public var represntableData: String {
+        return """
+            "ID": \(uuid) "NAME": \(advertisedName ?? "unknown") "STATE": \(state) "RSSI": "\(rssi)"
+        """
+    }
 }
