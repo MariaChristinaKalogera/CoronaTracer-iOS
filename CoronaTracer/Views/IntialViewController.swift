@@ -10,8 +10,9 @@ import UIKit
 
 class IntialViewController: UIViewController {
 
-    var bluetoothScannerService: BluetoothScannerService?
-    var peripheralCoreDataStorage = PeripheralCoreDataStorage()
+    var didStartBluetooth: (() -> Void)?
+
+    var lala: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +21,8 @@ class IntialViewController: UIViewController {
 
     @IBAction func enableBluetoothAction(_ sender: Any) {
 
-        self.bluetoothScannerService = BluetoothScannerService { [weak self] scanner in
-            scanner.startScanning { peripheral in
-                self?.peripheralCoreDataStorage.saveRecentQuery(peripheral: peripheral, completion: { result in
-                    if case let .success(peripheral) = result {
-                        print("Discovered peripheral: \(peripheral.represntableData)")
-                    }
-                })
-            }
+        BluetoothScannerService.shared.startScanning() { scanner in
+            self.didStartBluetooth?()
         }
     }
 }

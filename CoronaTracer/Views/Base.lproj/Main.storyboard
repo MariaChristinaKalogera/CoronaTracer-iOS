@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vmd-ru-8nk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -10,13 +10,13 @@
         <!--CoronaTracer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntialViewController" customModule="CoronaTracer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntialViewController" id="BYZ-38-t0r" customClass="IntialViewController" customModule="CoronaTracer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXE-WI-aD0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="788"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="832"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Use Bluethooth to determine your proximity with other users. If you're within transmittable proximity we keep track of it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWc-ry-FW3">
                                         <rect key="frame" x="19" y="204.5" width="375" height="115"/>
@@ -42,30 +42,15 @@
                                             <action selector="enableBluetoothAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xdn-bM-sKm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTc-M4-sJm">
-                                        <rect key="frame" x="57" y="485" width="300" height="60"/>
-                                        <color key="backgroundColor" red="0.074509803920000006" green="0.33725490200000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="2ur-AG-pqq"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="xSe-2E-k47"/>
-                                        </constraints>
-                                        <state key="normal" title="Tell about infection"/>
-                                        <connections>
-                                            <action selector="enableBluetoothAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e8M-AK-Olz"/>
-                                            <segue destination="Blb-gD-qQo" kind="presentation" id="ff6-Uk-zc5"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="rTc-M4-sJm" secondAttribute="bottom" constant="243" id="BfM-C6-3Zl"/>
                                     <constraint firstAttribute="trailing" secondItem="iWc-ry-FW3" secondAttribute="trailing" constant="20" id="C66-dJ-aY6"/>
                                     <constraint firstItem="iWc-ry-FW3" firstAttribute="leading" secondItem="PXE-WI-aD0" secondAttribute="leading" constant="20" id="QIP-8g-5GH"/>
                                     <constraint firstItem="Oa6-Hk-5So" firstAttribute="top" secondItem="iWc-ry-FW3" secondAttribute="bottom" constant="80" id="Qb8-LB-HLy"/>
                                     <constraint firstItem="iWc-ry-FW3" firstAttribute="top" secondItem="bjs-oO-Awt" secondAttribute="bottom" constant="100" id="SUc-Jg-wwQ"/>
                                     <constraint firstItem="bjs-oO-Awt" firstAttribute="leading" secondItem="PXE-WI-aD0" secondAttribute="leading" constant="20" id="Tvj-DL-K2Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oa6-Hk-5So" secondAttribute="bottom" constant="328.5" id="aMP-7S-sLg"/>
                                     <constraint firstAttribute="trailing" secondItem="bjs-oO-Awt" secondAttribute="trailing" constant="19" id="mmN-Ts-lg3"/>
-                                    <constraint firstItem="rTc-M4-sJm" firstAttribute="top" secondItem="Oa6-Hk-5So" secondAttribute="bottom" constant="25.5" id="nHf-sP-Rb7"/>
-                                    <constraint firstItem="rTc-M4-sJm" firstAttribute="centerX" secondItem="PXE-WI-aD0" secondAttribute="centerX" id="vOb-Kx-kU4"/>
                                     <constraint firstItem="bjs-oO-Awt" firstAttribute="top" secondItem="IxQ-cH-wLt" secondAttribute="top" constant="40" id="wQB-RW-kvU"/>
                                     <constraint firstItem="Oa6-Hk-5So" firstAttribute="centerX" secondItem="PXE-WI-aD0" secondAttribute="centerX" id="xOp-XD-jNS"/>
                                 </constraints>
@@ -93,13 +78,13 @@
         <!--CoronaTracer-->
         <scene sceneID="1FB-0h-M7d">
             <objects>
-                <viewController id="Blb-gD-qQo" customClass="IntialViewController" customModule="CoronaTracer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Blb-gD-qQo" customClass="LoginViewController" customModule="CoronaTracer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3TN-2f-Vg6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw1-bH-22G">
-                                <rect key="frame" x="57" y="391" width="300" height="60"/>
+                                <rect key="frame" x="57" y="418" width="300" height="60"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.33725490200000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wt3-lx-bl8"/>
@@ -107,8 +92,7 @@
                                 </constraints>
                                 <state key="normal" title="Login with Facbook"/>
                                 <connections>
-                                    <action selector="enableBluetoothAction:" destination="Blb-gD-qQo" eventType="touchUpInside" id="HZP-vN-bYs"/>
-                                    <action selector="login:" destination="j6J-Sh-Fv1" eventType="touchUpInside" id="nwI-U8-0tP"/>
+                                    <action selector="login:" destination="Blb-gD-qQo" eventType="touchUpInside" id="yqK-uv-mRN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -122,27 +106,8 @@
                     <navigationItem key="navigationItem" title="CoronaTracer" id="H0s-py-EP0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a61-Nq-cWR" sceneMemberID="firstResponder"/>
-                <exit id="j6J-Sh-Fv1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="143"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EJ6-ah-Rqf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vmd-ru-8nk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQy-mV-gwE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="goK-Th-BTH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XcF-RE-LuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
+            <point key="canvasLocation" x="1939" y="136"/>
         </scene>
     </scenes>
 </document>

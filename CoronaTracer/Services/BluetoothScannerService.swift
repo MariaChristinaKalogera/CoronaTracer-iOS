@@ -10,22 +10,25 @@ import CoreBluetooth
 
 open class BluetoothScannerService: NSObject, CBCentralManagerDelegate {
 
-    public typealias DidDiscoverPeripheralClosure = (Peripheral) -> Void
-    var centralManager: CBCentralManager!
-    private var onScannerReady: ((BluetoothScannerService) -> Void)?
-    private var onDiscover: DidDiscoverPeripheralClosure?
+    public typealias DidStartScanningClosure = (Peripheral) -> Void
 
-    public init(onScannerReady: @escaping (BluetoothScannerService) -> Void) {
-        self.onScannerReady = onScannerReady
+    static let shared = BluetoothScannerService()
+
+    var isScanning: Bool { centralManager?.isScanning ?? false }
+    var state: CBManagerState = .unknown
+    var centralManager: CBCentralManager?
+    var onStartScanning: DidStartScanningClosure?
+    private var peripheralCoreDataStorage = PeripheralCoreDataStorage()
+
+    override init() {
         super.init()
-        centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
     }
 
     open func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        self.state = central.state
         switch central.state {
         case .poweredOn:
-            onScannerReady?(self)
-            onScannerReady = nil
+            scanForPeripherals()
         case .poweredOff:
             central.stopScan()
         case .unsupported: print("Error: note you should run only on real device")
@@ -33,15 +36,25 @@ open class BluetoothScannerService: NSObject, CBCentralManagerDelegate {
         }
     }
 
-    open func startScanning(_ onDiscover: @escaping DidDiscoverPeripheralClosure) {
-        self.onDiscover = onDiscover
-        centralManager.scanForPeripherals(withServices: nil, options: nil)
+    open func startScanning(_ onStartScanning: DidStartScanningClosure? = nil) {
+
+        self.centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
+        self.onStartScanning = onStartScanning
+    }
+
+    private func scanForPeripherals() {
+        centralManager?.scanForPeripherals(withServices: nil, options: nil)
     }
 
     // MARK: - CBCentralManagerDelegate
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        onDiscover?(peripheral.toDomain(advertisementData: advertisementData, rssi: RSSI.intValue))
+        let peripheral = peripheral.toDomain(advertisementData: advertisementData, rssi: RSSI.intValue)
+        peripheralCoreDataStorage.save(peripheral: peripheral, completion: { _ in })
+        print("Discovered peripheral: \(peripheral.represntableData)")
+
+        onStartScanning?(peripheral)
+        onStartScanning = nil // we need to set to nil because we need to notify only once and release memory
     }
 
 }

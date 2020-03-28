@@ -24,7 +24,7 @@ final class PeripheralCoreDataStorage {
         self.coreDataStorage = coreDataStorage
     }
 
-    func saveRecentQuery(peripheral: Peripheral, completion: @escaping (Result<Peripheral, Error>) -> Void) {
+    func save(peripheral: Peripheral, completion: @escaping (Result<Peripheral, Error>) -> Void) {
 
         coreDataStorage.performBackgroundTask { context in
             do {

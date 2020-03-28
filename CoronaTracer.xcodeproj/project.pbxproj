@@ -12,10 +12,11 @@
 		1F0B8654242F7F0E00B03809 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B8653242F7F0E00B03809 /* CoreDataStorage.swift */; };
 		1F0B8656242F7F4B00B03809 /* PeripheralCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B8655242F7F4B00B03809 /* PeripheralCoreDataStorage.swift */; };
 		1F0B865B242F8A6B00B03809 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B865A242F8A6B00B03809 /* LoginViewController.swift */; };
+		1F0B865D242F9B6F00B03809 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B865C242F9B6F00B03809 /* AppFlowCoordinator.swift */; };
+		1F0B865E242FA6E200B03809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA20523242F694B000C4B56 /* Main.storyboard */; };
+		1F0B865F242FA79E00B03809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2051F242F694B000C4B56 /* SceneDelegate.swift */; };
 		1FA2051E242F694B000C4B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2051D242F694B000C4B56 /* AppDelegate.swift */; };
-		1FA20520242F694B000C4B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2051F242F694B000C4B56 /* SceneDelegate.swift */; };
 		1FA20522242F694B000C4B56 /* IntialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20521242F694B000C4B56 /* IntialViewController.swift */; };
-		1FA20525242F694B000C4B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA20523242F694B000C4B56 /* Main.storyboard */; };
 		1FA20528242F694B000C4B56 /* CoronaTracer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FA20526242F694B000C4B56 /* CoronaTracer.xcdatamodeld */; };
 		1FA2052A242F694C000C4B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA20529242F694C000C4B56 /* Assets.xcassets */; };
 		1FA2052D242F694C000C4B56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA2052B242F694C000C4B56 /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		1F0B8653242F7F0E00B03809 /* CoreDataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		1F0B8655242F7F4B00B03809 /* PeripheralCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCoreDataStorage.swift; sourceTree = "<group>"; };
 		1F0B865A242F8A6B00B03809 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1F0B865C242F9B6F00B03809 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		1F2C1121AA0CCBD5ED0908C0 /* Pods-CoronaTracerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaTracerTests.release.xcconfig"; path = "Target Support Files/Pods-CoronaTracerTests/Pods-CoronaTracerTests.release.xcconfig"; sourceTree = "<group>"; };
 		1FA2051A242F694B000C4B56 /* CoronaTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA2051D242F694B000C4B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,10 +147,10 @@
 		1F0B8658242F7F9600B03809 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1FA2051F242F694B000C4B56 /* SceneDelegate.swift */,
+				1FA20523242F694B000C4B56 /* Main.storyboard */,
+				1F0B865C242F9B6F00B03809 /* AppFlowCoordinator.swift */,
 				1FA20521242F694B000C4B56 /* IntialViewController.swift */,
 				1F0B865A242F8A6B00B03809 /* LoginViewController.swift */,
-				1FA20523242F694B000C4B56 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +196,7 @@
 				1F0B8521242F774800B03809 /* Services */,
 				1F0B8659242F7FBD00B03809 /* Resources */,
 				1FA2051D242F694B000C4B56 /* AppDelegate.swift */,
+				1FA2051F242F694B000C4B56 /* SceneDelegate.swift */,
 			);
 			path = CoronaTracer;
 			sourceTree = "<group>";
@@ -333,9 +336,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0B865E242FA6E200B03809 /* Main.storyboard in Resources */,
 				1FA2052D242F694C000C4B56 /* LaunchScreen.storyboard in Resources */,
 				1FA2052A242F694C000C4B56 /* Assets.xcassets in Resources */,
-				1FA20525242F694B000C4B56 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,10 +437,11 @@
 				1F0B8525242F778D00B03809 /* Peripheral.swift in Sources */,
 				1FA20522242F694B000C4B56 /* IntialViewController.swift in Sources */,
 				1F0B8656242F7F4B00B03809 /* PeripheralCoreDataStorage.swift in Sources */,
+				1F0B865F242FA79E00B03809 /* SceneDelegate.swift in Sources */,
 				1FA2051E242F694B000C4B56 /* AppDelegate.swift in Sources */,
 				1F0B8523242F775700B03809 /* BluetoothScannerService.swift in Sources */,
 				1F0B8654242F7F0E00B03809 /* CoreDataStorage.swift in Sources */,
-				1FA20520242F694B000C4B56 /* SceneDelegate.swift in Sources */,
+				1F0B865D242F9B6F00B03809 /* AppFlowCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
